@@ -1,0 +1,95 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+header{
+    padding: 50px;
+    background-color: #282828;
+    color: #fff;
+}
+#circulo{
+    gap: 30px;
+}
+#circulo .circle{
+    position: relative;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#circulo .circle svg{
+    position: relative;
+    width: 150px;
+    height: 150px;
+    transform: rotate(270deg);
+} 
+#circulo .circle svg circle{
+    width: 100%;
+    height: 100%;
+    fill: transparent;
+    stroke-width: 8;
+    stroke: #282828;
+    transform: translate(5px, 5px);
+}
+#circulo .circle svg circle:nth-child(2){
+    stroke: var(--clr);
+    stroke-dasharray: 440;
+    stroke-dashoffset: 400;
+}
+#circulo div{
+    position: absolute;
+    text-align: center;
+    font-weight: 500;
+    color: #000;
+    font-size: 1.5em;
+}
+#circulo div span{
+    position: absolute;
+    transform: translateX(-50%) translateY(-10px);
+    font-size: 0.35em;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+#circulo .dots{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    z-index: 1000;
+}
+#circulo .dots::before{
+    content: '';
+    position: absolute;
+    top: -3;
+    width: 3px;
+    height: 35px;
+    background: var(--clr);
+    box-shadow: 0 0 20px var(--clr), 0 0 60px var(--clr);
+}
+#grupo ul{
+    display: flex;
+    padding: 10px; 
+    justify-content: center;
+    align-items: center;
+    gap: 45px;
+}
+#grupo ul li{
+    list-style: none;
+    text-decoration: none;
+}
+footer{
+    padding: 25px;
+    background-color: #282828;
+    color: #fff;
+}
