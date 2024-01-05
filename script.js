@@ -29,7 +29,6 @@ if(typeof data === 'object') {
         opcao.text = `${optionTema[i]}`;
         document.getElementById("selecao_tema").add(opcao);
     }
-    console.log(data.table.rows[i].c)
 }else{
     throw new Error('Sem conexão com a planilha dos dados');
 }
