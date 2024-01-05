@@ -8,6 +8,7 @@ var f;
 var numero = [0];
 if(typeof data === 'object') {
     let num = -1;
+    var opcaoTema = [];
     for(var i = 0; i <= data.table.rows.length -1; i++){
         if(data.table.rows[i].c[0] != null || data.table.rows[i].c[0] != undefined){
             const result = optionTema.flatMap((option) => (option === data.table.rows[i].c[0].v));
@@ -17,19 +18,21 @@ if(typeof data === 'object') {
                 }
             });
             if(!f){
-                optionTema.length = data.table.rows.length
                 num++;
-                optionTema[i] = data.table.rows[i].c[0].v;
-                var opcao = document.createElement('option');
-                opcao.text = `${optionTema[i]}`;
-                document.getElementById("selecao_tema").add(opcao);
-                let temaSelecionado = data.table.rows[numero[0]].c[1].v;
+                optionTema.length = data.table.rows.length
+                optionTema[num] = data.table.rows[i].c[0].v;
                 
-                let num0 = -1;
+                for(var i = 1; i <= data.table.rows.length -1; i++){
+                    optionTema[i] = data.table.rows[i].c[0].v;
+                    opcaoTema[i] = document.createElement('option');
+                    opcaoTema[i].text = `${optionTema[i]}`;
+                    document.getElementById("selecao_tema").add(opcaoTema[i]);
+                }
+                let temas = data.table.rows[numero[num]].c[0].v;
                 for(var i = 0; i <= data.table.rows.length -1; i++){
-                    if(data.table.rows[i].c[0].v === temaSelecionado){
-                        num0++;
-                        numero[num0] = i;
+                    if(data.table.rows[i].c[0].v === temas){
+                        numero[num] = i;
+                        num++;
                     }
                 }
                 for(var i = 0; i <= numero.length -1; i++){ 
