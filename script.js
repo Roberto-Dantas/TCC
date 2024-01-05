@@ -14,24 +14,24 @@ if(typeof data === 'object') {
             result.forEach(element => {
                 if(element){
                     f = true;
-                }
+                };
             });
             if(!f){
                 num++;
                 optionTema[num] = data.table.rows[i].c[0].v;
-            }
+            };
             f = false;
             
-        }
-    }
+        };
+    };
     for(var i = 0; i <= optionTema.length -1; i++){
         var opcao = document.createElement('option');
         opcao.text = `${optionTema[i]}`;
         document.getElementById("selecao_tema").add(opcao);
-    }
+    };
 }else{
     throw new Error('Sem conexão com a planilha dos dados');
-}
+};
 document.getElementById("selecao_tema").addEventListener('change', function(){
     document.getElementById("problema").innerHTML="";
     numero.length = 0;
@@ -41,20 +41,20 @@ document.getElementById("selecao_tema").addEventListener('change', function(){
         if(data.table.rows[i].c[0].v === temaSelecionado){
             num++;
             numero[num] = i;
-        }
-    }
+        };
+    };
     for(var i = 0; i <= numero.length -1; i++){ 
         var opcao = document.createElement('option');
         opcao.text = `${data.table.rows[numero[i]].c[1].v}`;
         opcao.value = `${numero[i]}`;
         document.getElementById("problema").add(opcao);
-    }
+    };
     dados(numero[0]);
-})
+});
 document.getElementById("problema").addEventListener('change', function(){
     if(numero[1] != undefined){
         dados(parseInt(this.options[this.selectedIndex].value));
-    }
+    };
 });
 function dados(problemaSelecionado){
     document.querySelector("#grupo ul").innerHTML="";
@@ -74,7 +74,7 @@ function dados(problemaSelecionado){
     pon.style.strokeDashoffset = 440 - (440* artigo) /100;
     porcentagem.style.transform = `rotateZ(${artigo * 3.6}deg)`;
 
-    var integrantes = data.table.rows[problemaSelecionado].c[4].v
+    var integrantes = data.table.rows[problemaSelecionado].c[4].v;
     var re = /\s*-\s*/;
     var grupo = integrantes.split(re);
     let liElemento;
@@ -82,7 +82,7 @@ function dados(problemaSelecionado){
         liElemento = document.createElement('li');
         liElemento.textContent = grupo[i];
         document.querySelector("#grupo ul").appendChild(liElemento);
-    }
+    };
     grupo.length = 0;
 
-}
+};
