@@ -17,16 +17,12 @@ if(typeof data === 'object') {
                 }
             });
             if(!f){
-                console.log(data)
                 optionTema.length = data.table.rows.length
                 num++;
-                for(var i = 0; i <= optionTema.length -1; i++){
-                    optionTema[i] = data.table.rows[i].c[0].v;
-        
-                    var opcao = document.createElement('option');
-                    opcao.text = `${optionTema[i]}`;
-                    document.getElementById("selecao_tema").add(opcao);
-                };
+                optionTema[i] = data.table.rows[i].c[0].v;
+                var opcao = document.createElement('option');
+                opcao.text = `${optionTema[i]}`;
+                document.getElementById("selecao_tema").add(opcao);
                 let temaSelecionado = data.table.rows[numero[0]].c[1].v;
                 
                 let num0 = -1;
